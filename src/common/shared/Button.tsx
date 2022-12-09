@@ -53,8 +53,8 @@ export const SecondaryButton = styled(Button)`
 
 
 export const PrimaryButton = styled(Button)`
-  background: ${colors.white};
-  color: ${colors.yellow};
+  background: ${colors.yellow};
+  color: ${colors.green};
   :hover {
     transform: scale(1.1);
   }

@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 
 import colors from '../style/colors';
 import history from './history';
-import AuthButtons from '../feature/Header/AuthButtons';
 import { unstable_HistoryRouter as HistoryRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Modals from "../feature/modal/Modals";
 import styled from "styled-components";

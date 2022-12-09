@@ -2,12 +2,14 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import authReducer from '../feature/auth/authSlice';
 import modalReducer from '../feature/modal/modalSlice';
+import profileReducer from '../feature/profile/profileSlice';
 
 import rootSaga from './rootSaga';
 
 const rootReducer = combineReducers({
     auth: authReducer,
     modal: modalReducer,
+    profile: profileReducer
 });
 const sagaMiddleware = createSagaMiddleware();
 
