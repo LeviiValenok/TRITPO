@@ -5,17 +5,21 @@ const AUTH_DOMAIN = import.meta.env.VITE_AUTH_API_DOMAIN;
 
 const authAPI = {
     async login(payload: SignInPayload): Promise<SignInResponse> {
-        const formData = new FormData();
-        formData.append('phone', payload.phone);
-        formData.append('password', payload.password);
-
-        const url = `http://${AUTH_DOMAIN}/auth/sign-in`;
+        const body = {
+            phone : payload.phone,
+            password: payload.password
+        }
+        console.log('input parametres:', payload);
+        const url = `http://localhost:8000/auth/sign-in`;
         const request = new window.Request(url, {
-            mode: 'no-cors',
             method: 'POST',
-            body: formData,
+            body: JSON.stringify(body),
+            headers: {
+                'content-type': 'application/json',
+            },
         });
         const response = await fetch(request);
+        console.log('response', response)
         return parseResponse(response);
     },
 

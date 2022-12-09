@@ -9,6 +9,7 @@ import history from '../../app/history';
 function* handleSignIn(action: { type: string; payload: SignInPayload}) {
     try {
         const result: SignInResponse = yield call(authAPI.login, action.payload);
+        console.log('result', result);
         localStorage.setItem('access_token', result.access_token);
         yield put(authActions.signInSuccess());
 

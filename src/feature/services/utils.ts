@@ -48,6 +48,7 @@ const parseValidationError = async (response: Response): Promise<string> => {
 };
 
 export const parseResponse = async (response: Response) => {
+    console.log('response.status', response.status);
     switch (response.status) {
         case 200: {
             const string = await response.text();

@@ -59,7 +59,8 @@ export const authSlice = createSlice({
         logout(state) {
             state.loading = true;
             state.error = '';
-        },logoutSuccess(state) {
+        },
+        logoutSuccess(state) {
             state.loading = false;
             state.isLoggedIn = false;
         },

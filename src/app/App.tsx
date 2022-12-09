@@ -2,16 +2,19 @@ import React, {useEffect} from 'react';
 
 import colors from '../style/colors';
 import history from './history';
-import AppHeader from '../feature/Header/AppHeader';
 import AuthButtons from '../feature/Header/AuthButtons';
 import { unstable_HistoryRouter as HistoryRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Modals from "../feature/modal/Modals";
 import styled from "styled-components";
 import DashboardPage from "../feature/dashboard/DashboardPage";
 import DebugPage from "../feature/debug/DebugPage";
+import WelcomePage from "../feature/WelcomePage/WelcomePage";
+import {selectIsLoggedIn} from "../feature/auth/authSlice";
+import {useAppSelector} from "./hooks";
 
 
 function App() {
+    const isLoggedIn = useAppSelector(selectIsLoggedIn);
     useEffect(() => {
         const initialHeight = window.innerHeight;
         const updateViewport = () => {
@@ -41,11 +44,11 @@ function App() {
             <MainPageWrapper>
                 <Routes>
                     <Route path="/dashboard" element={<DashboardPage />} />
-                    <Route path="/" element={<AppHeader/>} />
+                    <Route path="/" element={<WelcomePage/>} />
                     <Route path="*" element={<Navigate to="/" />} />
                     <Route path="/debug" element={<DebugPage />} />
                 </Routes>
-                <AuthButtons/>
+
                 <Modals />
             </MainPageWrapper>
         </HistoryRouter>

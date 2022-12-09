@@ -62,5 +62,5 @@ export const PrimaryButton = styled(Button)`
 
 export const PrimaryModalButton = styled(Button)`
   background: ${(props) => (props.disabled ? colors.yellow : colors.green)};
-  color: ${(props) => (props.disabled ? colors.yellow : colors.green)};
+  color: ${colors.white};
 `;
